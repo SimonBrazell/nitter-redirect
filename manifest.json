@@ -1,0 +1,22 @@
+{
+  "name": "Nitter Redirect",
+  "description": "Redirects Twitter links to Nitter instead, works when navigating to the site, or opening links.",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "icons": {
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://twitter.com/*",
+    "*://www.twitter.com/*",
+    "*://mobile.twitter.com/*"
+  ]
+}
