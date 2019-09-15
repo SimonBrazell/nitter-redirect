@@ -1,12 +1,15 @@
 # Nitter Redirect
 
+-  [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/nitter-redirect/)
+-  Chrome extension (coming soon to the web store)
+
 A simple browser extension to redirect Twitter links to [Nitter](https://nitter.net/about) instead, works when navigating to the site, or opening links.
 
 Inspiration comes from [Old Reddit Redirect](https://github.com/tom-james-watson/old-reddit-redirect).
 
 ## Installation
 
-Chromium and Firefox packages can be downloaded from [here](https://github.com/SimonBrazell/nitter-redirect/releases/latest) or you can manually load them from source:
+Chromium and Firefox packages can also be downloaded from [here](https://github.com/SimonBrazell/nitter-redirect/releases/latest) or you can manually load them from source:
 
 1.  Download the extension source from the [Github repo](https://github.com/SimonBrazell/nitter-redirect/archive/master.zip) and unzip.
 2.  Enable `Developer Mode` in chrome extensions menu.
