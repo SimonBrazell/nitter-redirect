@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="./popup.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="../../images/icon128.png" alt="Nitter Redirect logo">
+    </div>
+    <small>
+      <span>Version: 1.1.0</span>
+    </small>
+  </header>
+
+  <section class="options settings_block">
+    <div class="onoffswitch switch" aria-label="Toggle Nitter redirects">
+      <h1>Toggle Redirects</h1>
+      <input aria-hidden="true" name="toggleNitter" id="toggleNitter" type="checkbox" checked>&nbsp;
+      <label for="toggleNitter" class="checkbox-label">
+      </label>
+    </div>
+  </section>
+
+  <section class="options settings_block">
+    <h1>Nitter Instance</h1>
+    <input id="instance" type="url" placeholder="https://nitter.net">
+  </section>
+
+  <script src="./popup.js"></script>
+
+</body>
+
+</html>

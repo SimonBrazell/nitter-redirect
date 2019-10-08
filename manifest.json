@@ -1,22 +1,36 @@
 {
   "name": "Nitter Redirect",
   "description": "Redirects Twitter links to Nitter instead, works when navigating to the site, or opening links.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 2,
   "background": {
     "scripts": [
       "background.js"
-    ]
+    ],
+    "persistent": true
   },
   "icons": {
-    "48": "img/icon48.png",
-    "128": "img/icon128.png"
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
   },
   "permissions": [
+    "storage",
     "webRequest",
     "webRequestBlocking",
     "*://twitter.com/*",
     "*://www.twitter.com/*",
     "*://mobile.twitter.com/*"
-  ]
+  ],
+  "browser_action": {
+    "default_popup": "pages/popup/popup.html",
+    "default_icon": {
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{513646f8-fb87-4135-a41e-4cf1d1ccccf2}"
+    }
+  }
 }
