@@ -3,7 +3,11 @@
 -  [Chrome extension](https://chrome.google.com/webstore/detail/nitter-redirect/mohaicophfnifehkkkdbcejkflmgfkof)
 -  [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/nitter-redirect/)
 
-A simple browser extension to redirect Twitter links to [Nitter](https://nitter.net/about) instead, works when navigating to the site, or opening links.
+A simple browser extension that redirects Twitter requests to [Nitter](https://github.com/zedeus/nitter) instead.
+
+No unnecessary permissions required, only listens for and redirects requests made to `twitter.com`, `www.twitter.com`, and `mobile.twitter.com`, nothing else. 
+
+Allows for setting custom [Nitter instances](https://github.com/zedeus/nitter/wiki/Instances) and toggling redirects on & off.
 
 ## Build
 

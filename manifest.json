@@ -1,7 +1,7 @@
 {
   "name": "Nitter Redirect",
   "description": "Redirects Twitter links to Nitter instead, works when navigating to the site, or opening links.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "manifest_version": 2,
   "background": {
     "scripts": [
