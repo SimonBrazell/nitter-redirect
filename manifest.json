@@ -1,7 +1,7 @@
 {
   "name": "Nitter Redirect",
-  "description": "Redirects Twitter links to Nitter instead, works when navigating to the site, or opening links.",
-  "version": "1.1.1",
+  "description": "Redirects Twitter requests to Nitter, the privacy friendly alternative.",
+  "version": "1.1.2",
   "manifest_version": 2,
   "background": {
     "scripts": [
@@ -19,7 +19,9 @@
     "webRequestBlocking",
     "*://twitter.com/*",
     "*://www.twitter.com/*",
-    "*://mobile.twitter.com/*"
+    "*://mobile.twitter.com/*",
+    "*://pbs.twimg.com/*",
+    "*://video.twimg.com/*"
   ],
   "browser_action": {
     "default_popup": "pages/popup/popup.html",

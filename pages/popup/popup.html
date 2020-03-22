@@ -15,22 +15,34 @@
       <img src="../../images/icon128.png" alt="Nitter Redirect logo">
     </div>
     <small>
-      <span>Version: 1.1.1</span>
+      <span>Version:&nbsp;<span id="version"></span></span>
     </small>
   </header>
 
   <section class="options settings_block">
     <div class="onoffswitch switch" aria-label="Toggle Nitter redirects">
       <h1>Toggle Redirects</h1>
-      <input aria-hidden="true" name="toggleNitter" id="toggleNitter" type="checkbox" checked>&nbsp;
-      <label for="toggleNitter" class="checkbox-label">
+      <input aria-hidden="true" name="toggleNitter" id="toggle-nitter" type="checkbox" checked>&nbsp;
+      <label for="toggle-nitter" class="checkbox-label">
       </label>
     </div>
   </section>
 
   <section class="options settings_block">
     <h1>Nitter Instance</h1>
-    <input id="instance" type="url" placeholder="https://nitter.net">
+    <input id="instance" list="instance-list" type="url" placeholder="https://nitter.net">
+    <datalist id="instance-list">
+      <option value="https://nitter.net">
+      <option value="https://nitter.snopyta.org">
+      <option value="https://nitter.42l.fr">
+      <option value="https://nitter.nixnet.xyz">
+      <option value="https://nitter.13ad.de">
+      <option value="https://tw.openalgeria.org">
+      <option value="https://nitter.pussthecat.org">
+      <option value="https://nitter.mastodont.cat">
+    </datalist>
+
+
   </section>
 
   <script src="./popup.js"></script>

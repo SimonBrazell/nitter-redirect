@@ -5,7 +5,7 @@
 
 A simple browser extension that redirects Twitter requests to [Nitter](https://github.com/zedeus/nitter) instead.
 
-No unnecessary permissions required, only listens for and redirects requests made to `twitter.com`, `www.twitter.com`, and `mobile.twitter.com`, nothing else. 
+No unnecessary permissions required, only listens for and redirects requests made to `twitter.com`, `www.twitter.com`, `mobile.twitter.com`, `pbs.twimg.com`  & `video.twimg.com`, nothing else. 
 
 Allows for setting custom [Nitter instances](https://github.com/zedeus/nitter/wiki/Instances) and toggling redirects on & off.
 

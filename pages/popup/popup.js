@@ -1,12 +1,17 @@
 'use strict';
 
-let toggleNitter = document.querySelector('#toggleNitter');
+let toggleNitter = document.querySelector('#toggle-nitter');
 let instance = document.querySelector('#instance');
+let version = document.querySelector('#version');
 
-chrome.storage.sync.get(['nitterDisabled', 'instance'], (result) => {
+window.browser = window.browser || window.chrome;
+
+browser.storage.sync.get(['nitterDisabled', 'instance'], (result) => {
   toggleNitter.checked = !result.nitterDisabled;
   instance.value = result.instance || '';
 });
+
+version.textContent = browser.runtime.getManifest().version;
 
 function debounce(func, wait, immediate) {
   let timeout;
@@ -24,11 +29,16 @@ function debounce(func, wait, immediate) {
 };
 
 let instanceChange = debounce(() => {
-  chrome.storage.sync.set({ instance: instance.value });
+  if (instance.checkValidity()) {
+    browser.storage.sync.set({
+      instance: instance.value ? new URL(instance.value).origin : ''
+    });
+  }
 }, 500);
+instance.addEventListener('input', instanceChange);
 
 toggleNitter.addEventListener('change', (event) => {
-  chrome.storage.sync.set({ nitterDisabled: !event.target.checked });
+  browser.storage.sync.set({ nitterDisabled: !event.target.checked });
 });
 
 instance.addEventListener('input', instanceChange);

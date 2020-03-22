@@ -5,7 +5,9 @@ const nitterDefault = 'https://nitter.net';
 let instance;
 let nitterDisabled;
 
-chrome.storage.sync.get(
+window.browser = window.browser || window.chrome;
+
+browser.storage.sync.get(
   ['nitterDisabled', 'instance'],
   (result) => {
     nitterDisabled = result.nitterDisabled;
@@ -13,7 +15,7 @@ chrome.storage.sync.get(
   }
 );
 
-chrome.storage.onChanged.addListener(function (changes) {
+browser.storage.onChanged.addListener(function (changes) {
   if ('instance' in changes) {
     instance = changes.instance.newValue || nitterDefault;
   }
@@ -22,31 +24,50 @@ chrome.storage.onChanged.addListener(function (changes) {
   }
 });
 
-chrome.webRequest.onBeforeRequest.addListener(
-  function (details) {
-    if (!nitterDisabled) {
-      return {
-        redirectUrl:
-          instance + details.url.match(/^https?:\/\/[^\/]+([\S\s]*)/)[1]
-      };
+function redirectTwitter(url) {
+  if (nitterDisabled) {
+    return null;
+  }
+  if (url.host.split('.')[0] === 'pbs') {
+    return `${instance}/pic/${encodeURIComponent(url.href)}`;
+  } else if (url.host.split('.')[0] === 'video') {
+    return `${instance}/gif/${encodeURIComponent(url.href)}`;
+  } else {
+    return `${instance}${url.pathname}${url.search}`;
+  }
+}
+
+browser.webRequest.onBeforeRequest.addListener(
+  details => {
+    const url = new URL(details.url);
+    let redirect;
+    redirect = { redirectUrl: redirectTwitter(url) };
+    if (redirect && redirect.redirectUrl) {
+      console.info(
+        'Redirecting', `"${url.href}"`, '=>', `"${redirect.redirectUrl}"`
+      );
+      console.info('Details', details);
     }
+    return redirect;
   },
   {
     urls: [
-      "*://twitter.com/*",
-      "*://www.twitter.com/*",
-      "*://mobile.twitter.com/*"
+      '*://twitter.com/*',
+      '*://www.twitter.com/*',
+      '*://mobile.twitter.com/*',
+      '*://pbs.twimg.com/*',
+      '*://video.twimg.com/*',
     ],
     types: [
-      "main_frame",
-      "sub_frame",
-      "stylesheet",
-      "script",
-      "image",
-      "object",
-      "xmlhttprequest",
-      "other"
+      'main_frame',
+      'sub_frame',
+      'stylesheet',
+      'script',
+      'image',
+      'object',
+      'xmlhttprequest',
+      'other'
     ]
   },
-  ["blocking"]
+  ['blocking']
 );
