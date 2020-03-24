@@ -1,4 +1,7 @@
-# Nitter Redirect
+# ![nitter-redirect](images/icon32.png) Nitter Redirect
+
+[![Buy me a coffee](images/buy-me-a-coffee.png)](https://www.buymeacoffee.com/SimonBrazell)
+
 
 -  [Chrome extension](https://chrome.google.com/webstore/detail/nitter-redirect/mohaicophfnifehkkkdbcejkflmgfkof)
 -  [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/nitter-redirect/)
