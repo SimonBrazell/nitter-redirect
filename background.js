@@ -57,16 +57,6 @@ browser.webRequest.onBeforeRequest.addListener(
       '*://mobile.twitter.com/*',
       '*://pbs.twimg.com/*',
       '*://video.twimg.com/*',
-    ],
-    types: [
-      'main_frame',
-      'sub_frame',
-      'stylesheet',
-      'script',
-      'image',
-      'object',
-      'xmlhttprequest',
-      'other'
     ]
   },
   ['blocking']
