@@ -22,20 +22,21 @@ browser.storage.sync.get(
   (result) => {
     nitterDisabled = result.nitterDisabled;
     instance = result.instance || nitterDefault;
-    navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
       for (let registration of registrations) {
-        if (registration.scope === 'https://twitter.com/' && !nitterDisabled) {
+        if (registration.scope === 'https://twitter.com/') {
           registration.unregister();
-          const url = new URL(window.location);
-          const redirect = redirectTwitter(url);
-          console.info(
-            'Redirecting', `"${url.href}"`, '=>', `"${redirect}"`
-          );
-          if (url.host !== instance) {
-            window.location = redirect;
-          }
+          console.log('Unregistered Twitter SW', registration);
         }
       }
     });
+    const url = new URL(window.location);
+    if (!nitterDisabled && url.host !== instance) {
+      const redirect = redirectTwitter(url);
+      console.info(
+        'Redirecting', `"${url.href}"`, '=>', `"${redirect}"`
+      );
+      window.location = redirect;
+    }
   }
 );
