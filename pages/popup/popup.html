@@ -1,52 +1,75 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="./popup.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link href="./popup.css" rel="stylesheet">
-</head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="../../images/icon128.png" alt="Nitter Redirect logo" />
+      </div>
+      <small>
+        <span>Version:&nbsp;<span id="version"></span></span>
+      </small>
+    </header>
 
-<body>
+    <section class="options settings_block">
+      <div class="onoffswitch switch" aria-label="Toggle Nitter redirects">
+        <h1>Toggle Redirects</h1>
+        <input
+          aria-hidden="true"
+          name="toggleNitter"
+          id="toggle-nitter"
+          type="checkbox"
+          checked
+        />&nbsp;
+        <label for="toggle-nitter" class="checkbox-label"> </label>
+      </div>
+    </section>
 
-  <header>
-    <div class="logo-container">
-      <img src="../../images/icon128.png" alt="Nitter Redirect logo">
-    </div>
-    <small>
-      <span>Version:&nbsp;<span id="version"></span></span>
-    </small>
-  </header>
+    <section class="options settings_block">
+      <h1>Nitter Instance</h1>
+      <input
+        id="instance"
+        list="instance-list"
+        type="url"
+        placeholder="https://nitter.net"
+      />
+      <datalist id="instance-list">
+        <option value="https://nitter.net"> </option>
+        <option value="https://nitter.snopyta.org"> </option>
+        <option value="https://nitter.42l.fr"> </option>
+        <option value="https://nitter.nixnet.services"> </option>
+        <option value="https://nitter.13ad.de"> </option>
+        <option value="https://tw.openalgeria.org"> </option>
+        <option value="https://nitter.pussthecat.org"> </option>
+        <option value="https://nitter.mastodont.cat"> </option>
+        <option value="https://nitter.dark.fail"> </option>
+        <option value="https://nitter.tedomum.net"> </option>
+        <option value="https://t.maisputain.ovh"> </option>
+        <option value="https://nitter.cattube.org"> </option>
+        <option value="https://nitter.fdn.fr"> </option>
+        <option value="https://nitter.1d4.us"> </option>
+        <option value="https://nitter.kavin.rocks"> </option>
+        <option value="https://nitter.libre.cx"> </option>
+        <option
+          value="http://3nzoldnxplag42gqjs23xvghtzf6t6yzssrtytnntc6ppc7xxuoneoad.onion"
+        >
+        </option>
+        <option
+          value="http://nitter.l4qlywnpwqsluw65ts7md3khrivpirse744un3x7mlskqauz5pyuzgqd.onion"
+        >
+        </option>
+        <option
+          value="http://nitterlgj3n5fgwesu3vxc5h67ruku33nqaoeoocae2mvlzhsu6k7fqd.onion"
+        ></option>
+      </datalist>
+    </section>
 
-  <section class="options settings_block">
-    <div class="onoffswitch switch" aria-label="Toggle Nitter redirects">
-      <h1>Toggle Redirects</h1>
-      <input aria-hidden="true" name="toggleNitter" id="toggle-nitter" type="checkbox" checked>&nbsp;
-      <label for="toggle-nitter" class="checkbox-label">
-      </label>
-    </div>
-  </section>
-
-  <section class="options settings_block">
-    <h1>Nitter Instance</h1>
-    <input id="instance" list="instance-list" type="url" placeholder="https://nitter.net">
-    <datalist id="instance-list">
-      <option value="https://nitter.net">
-      <option value="https://nitter.snopyta.org">
-      <option value="https://nitter.42l.fr">
-      <option value="https://nitter.nixnet.xyz">
-      <option value="https://nitter.13ad.de">
-      <option value="https://tw.openalgeria.org">
-      <option value="https://nitter.pussthecat.org">
-      <option value="https://nitter.mastodont.cat">
-    </datalist>
-
-
-  </section>
-
-  <script src="./popup.js"></script>
-
-</body>
-
+    <script src="./popup.js"></script>
+  </body>
 </html>
