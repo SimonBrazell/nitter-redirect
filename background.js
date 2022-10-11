@@ -29,8 +29,8 @@ function redirectTwitter(url) {
     return `${instance}/pic/${encodeURIComponent(url.href)}`;
   } else if (url.host.split(".")[0] === "video") {
     return `${instance}/gif/${encodeURIComponent(url.href)}`;
-  } else if (url.pathname.includes("tweets")) {
-    return `${instance}${url.pathname.replace("/tweets", "")}${url.search}`;
+  } else if (url.pathname.endsWith("/tweets")) {
+    return `${instance}${url.pathname.replace(/\/tweets$/s, "")}${url.search}`;
   } else {
     return `${instance}${url.pathname}${url.search}`;
   }
